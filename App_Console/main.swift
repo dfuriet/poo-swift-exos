@@ -8,18 +8,22 @@
 
 import Foundation
 
-for i in 0...100 {
-    print(Math.nombreAleatoire(comprisEntre: 1, et: 100))
-}
+//Exemple de génération de nombre aléatoire
+let nombreAleatoire = Math.nombreAleatoire(comprisEntre: 1, et: 100)
+print(nombreAleatoire)
 
+//Exemples de saisies utilisateur
+print("Entrez votre prénom : ")
 let texte:String
 texte = Utilisateur.saisirTexte()
-print("Hello, World!")
+print("Bonjour \(texte)")
 
+print("Entrez votre age : ")
 let age:Int
 age = Utilisateur.saisirEntier()
 print("Age : \(age)")
 
+print("Entrez une note : ")
 let note:Double
 note = Utilisateur.saisirReel()
 print("Note : \(note)")
