@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6D69A04E2895065D00BD2254 /* bot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D69A04D2895065D00BD2254 /* bot.swift */; };
+		6D99D2B02898521500357ADF /* player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D99D2AF2898521500357ADF /* player.swift */; };
 		F860308C1EB8C99F002BD3BF /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = F860308B1EB8C99F002BD3BF /* Math.swift */; };
 		F8A5D25B1EB8B64000A56D56 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A5D25A1EB8B64000A56D56 /* main.swift */; };
 		F8A5D2621EB8B6C600A56D56 /* Utilisateur.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A5D2611EB8B6C600A56D56 /* Utilisateur.swift */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		6D69A04D2895065D00BD2254 /* bot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bot.swift; sourceTree = "<group>"; };
+		6D99D2AF2898521500357ADF /* player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = player.swift; sourceTree = "<group>"; };
 		F860308B1EB8C99F002BD3BF /* Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
 		F8A5D2571EB8B64000A56D56 /* App_Console */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = App_Console; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8A5D25A1EB8B64000A56D56 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -44,6 +46,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6D99D2B128985D3D00357ADF /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				F860308B1EB8C99F002BD3BF /* Math.swift */,
+				F8A5D2611EB8B6C600A56D56 /* Utilisateur.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		F8A5D24E1EB8B64000A56D56 = {
 			isa = PBXGroup;
 			children = (
@@ -63,10 +74,10 @@
 		F8A5D2591EB8B64000A56D56 /* App_Console */ = {
 			isa = PBXGroup;
 			children = (
+				6D99D2B128985D3D00357ADF /* Tools */,
 				F8A5D25A1EB8B64000A56D56 /* main.swift */,
-				F8A5D2611EB8B6C600A56D56 /* Utilisateur.swift */,
-				F860308B1EB8C99F002BD3BF /* Math.swift */,
 				6D69A04D2895065D00BD2254 /* bot.swift */,
+				6D99D2AF2898521500357ADF /* player.swift */,
 			);
 			path = App_Console;
 			sourceTree = "<group>";
@@ -133,6 +144,7 @@
 				F8A5D25B1EB8B64000A56D56 /* main.swift in Sources */,
 				6D69A04E2895065D00BD2254 /* bot.swift in Sources */,
 				F860308C1EB8C99F002BD3BF /* Math.swift in Sources */,
+				6D99D2B02898521500357ADF /* player.swift in Sources */,
 				F8A5D2621EB8B6C600A56D56 /* Utilisateur.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
