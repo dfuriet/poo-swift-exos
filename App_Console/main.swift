@@ -17,54 +17,33 @@ player.health = 100
 let bot = Bot()
 bot.strength = 1
 bot.health = 100
-var i = 1
+var i:Int
 var isMyTour:Bool = Bool.random()
 repeat {
-    print("\n\(player.pseudo) : Appuyer sur entrée pour le tour n°\(i)")
-    _ = Utilisateur.saisirTexte()
+    i = 1
+    repeat {
+        print("\n\(player.pseudo) : Appuyer sur entrée pour le tour n°\(i)")
+        _ = Utilisateur.saisirTexte()
+        
+        if isMyTour {
+            player.attack(bot:bot)
+            bot.display()
+        } else {
+            bot.attack(player:player)
+            player.display()
+        }
+        
+        isMyTour.toggle()
+        i += 1
+    } while bot.health >= 0 && player.health >= 0
     
-    if isMyTour {
-        attack(from: player, to: bot)
-        display(bot:bot)
-    } else {
-        attack(from: bot, to: player)
-        display(player: player)
+    if bot.health < 0 {
+        player.victory(bot: bot, coups:i)
     }
-    
-    isMyTour.toggle()
-    i += 1
-} while bot.health >= 0 && player.health >= 0
-
-if bot.health < 0 {
-  print("Gagné en \(i) coups")
-}
-if player.health < 0 {
-    print("Perdu en \(i) coups")
-}
-
-func lancerDes() -> Int {
-    let nombreAleatoire = Math.nombreAleatoire(comprisEntre: 2, et: 12)
-    return nombreAleatoire
-}
-
-func display(player:Player) {
-    print("\(player.pseudo) : Force = \(player.strength), Santé = \(player.health)%")
-}
-
-func display(bot:Bot) {
-    print("Bot : Force = \(bot.strength), Santé \(bot.health)%")
-}
-
-func attack(from player:Player, to bot:Bot) {
-    print("Tour de \(player.pseudo) :")
-    let deJoueur = lancerDes()
-    print("Dé de \(player.pseudo) : \(deJoueur)")
-    bot.health -= deJoueur
-}
-
-func attack(from bot:Bot, to player:Player) {
-    print("Tour de Bot :")
-    let deBot = lancerDes()
-    print("Dé de Bot :  \(deBot)")
-    player.health -= deBot
-}
+    if player.health < 0 {
+        print("Perdu en \(i) coups. Une vie en moins")
+        player.health = 100
+        player.strength -= 1
+    }
+} while player.isAlive
+print("Game over....")
