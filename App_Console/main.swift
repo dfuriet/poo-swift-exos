@@ -9,14 +9,9 @@
 import Foundation
 
 print("Entrez votre prénom : ")
-var player = Player()
-player.pseudo = Utilisateur.saisirTexte()
-player.strength = 1
-player.health = 100
-
+let player = Player(pseudo: Utilisateur.saisirTexte())
 let bot = Bot()
-bot.strength = 1
-bot.health = 100
+
 var i:Int
 var isMyTour:Bool = Bool.random()
 repeat {
@@ -47,3 +42,8 @@ repeat {
     }
 } while player.isAlive
 print("Game over....")
+
+func lancerDes() -> Int {
+    let nombreAleatoire = Math.nombreAleatoire(comprisEntre: 2, et: 12)
+    return nombreAleatoire
+}

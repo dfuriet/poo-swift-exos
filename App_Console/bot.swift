@@ -9,8 +9,13 @@
 import Foundation
 
 class Bot {
-    var strength:Int = 0
-    var health:Int = 0
+    var strength:Int
+    var health:Int
+    
+    init() {
+        self.health = 100
+        self.strength = 1
+    }
     
     func display() {
         print("Bot : Force = \(self.strength), Santé \(self.health)%")
@@ -18,13 +23,8 @@ class Bot {
     
     func attack(player:Player) {
         print("Tour de Bot :")
-        let deBot = self.lancerDes() * self.strength
+        let deBot = lancerDes() * self.strength
         print("Dé de Bot :  \(deBot)")
         player.health -= deBot
-    }
-    
-    func lancerDes() -> Int {
-        let nombreAleatoire = Math.nombreAleatoire(comprisEntre: 2, et: 12)
-        return nombreAleatoire
     }
 }

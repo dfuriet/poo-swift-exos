@@ -9,9 +9,19 @@
 import Foundation
 
 class Player {
-    var pseudo:String = ""
-    var strength:Int = 0
-    var health:Int = 0
+    let pseudo:String
+    var strength:Int
+    var health:Int
+    
+    init(pseudo:String) {
+        if (pseudo.count == 0) {
+            self.pseudo = "Anonymous"
+        } else {
+          self.pseudo = pseudo
+        }
+        self.strength = 1
+        self.health = 100
+    }
     
     var isAlive: Bool { self.health > 0}
     
@@ -21,14 +31,9 @@ class Player {
     
     func attack(bot:Bot) {
         print("Tour de \(self.pseudo) :")
-        let deJoueur = self.lancerDes() * self.strength
+        let deJoueur = lancerDes() * self.strength
         print("Dé de \(self.pseudo) : \(deJoueur)")
         bot.health -= deJoueur
-    }
-    
-    func lancerDes() -> Int {
-        let nombreAleatoire = Math.nombreAleatoire(comprisEntre: 2, et: 12)
-        return nombreAleatoire
     }
     
     func victory(bot:Bot, coups i:Int) {
