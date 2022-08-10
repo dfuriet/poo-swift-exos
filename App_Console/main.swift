@@ -14,23 +14,25 @@ let bot = Bot()
 
 var i:Int
 var isMyTour:Bool = Bool.random()
-while player.isAlive {
+repeat {
     i = 1
-    while bot.isAlive && player.isAlive {
-        print("\n\(player.get_pseudo()) : Appuyer sur entrée pour le tour n°\(i)")
-        _ = Utilisateur.saisirTexte()
-        
+    repeat {
         if isMyTour {
+            print("\n\(player.get_pseudo()) : Appuyer sur entrée pour le tour n°\(i)")
+            _ = Utilisateur.saisirTexte()
             player.attack(bot:bot)
             bot.display()
+            i += 1
         } else {
             bot.attack(player:player)
             player.display()
         }
         
         isMyTour.toggle()
-        i += 1
-    }
+        
+        print("===> Player \(player.health)%  : \(player.isAlive) - Bot \(bot.health)%  : \(bot.isAlive)  <===")
+    } while player.isAlive && bot.isAlive
+    //} while player.health > 0 && bot.health > 0
     
     if bot.health < 0 {
         player.victory(bot: bot, coups:i)
@@ -40,7 +42,7 @@ while player.isAlive {
         player.health = 100
         player.strength -= 1
     }
-}
+} while player.isAlive
 print("Game over....")
 
 func lancerDes() -> Int {

@@ -33,14 +33,6 @@ class Weapon {
         self._accuracy = 0.75
     }
     
-    /*
-    convenience init(name:String, power:Int = 1, accuracy:Double = 1.0) {
-        self.init(name:name)
-        self._power = power
-        self._accuracy = accuracy
-    }
-    */
-    
     func get_name() -> String {
         return self.name
     }

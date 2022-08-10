@@ -12,7 +12,8 @@ class Player {
     private let pseudo:String
     private var _strength:Int
     private var _health:Int
-    private var weapon:Weapon = Weapon(name: "Batte de baseball")
+    private var weapon:Weapon
+    private let weaponListManager = WeaponListManager()
     
     var health:Int {
         get { _health }
@@ -37,7 +38,7 @@ class Player {
         
         self._strength = 1
         self._health = 100
-        self.weapon = Weapon(name:"baton")
+        self.weapon = weaponListManager.getNextWeaponToLoot()!
     }
     
     var isAlive: Bool { self._health > 0}
@@ -63,7 +64,7 @@ class Player {
     }
     
     func victory(bot:Bot, coups i:Int) {
-        weapon = Weapon(name:"Fusil à pompe", power: 2, accuracy: 1.0)
+        weapon = weaponListManager.getNextWeaponToLoot()!
         print("Bravo \(self.pseudo), vous avez gagné en \(i) coups. J'augmente votre force et vous donne une nouvelle arme \(weapon.get_name()) !")
         strength += 1
         health = 100
