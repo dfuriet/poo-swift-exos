@@ -64,11 +64,16 @@ class Player {
     }
     
     func victory(bot:Bot, coups i:Int) {
-        weapon = weaponListManager.getNextWeaponToLoot()!
-        print("Bravo \(self.pseudo), vous avez gagné en \(i) coups. J'augmente votre force et vous donne une nouvelle arme \(weapon.get_name()) !")
-        strength += 1
-        health = 100
-        bot.health = 100
-        self.display()
+        //weapon = weaponListManager.getNextWeaponToLoot()!
+        if let weapon = weaponListManager.getNextWeaponToLoot() {
+            print("Bravo \(self.pseudo), vous avez gagné en \(i) coups. J'augmente votre force et vous donne une nouvelle arme \(weapon.get_name()) !")
+            strength += 1
+            health = 100
+            bot.health = 100
+            self.display()
+        } else {
+            print("Plus d'arme !!!")
+        }
+        
     }
 }
