@@ -9,37 +9,64 @@
 import Foundation
 
 class Player {
-    let pseudo:String
-    var strength:Int
-    var health:Int
+    private let pseudo:String
+    private var _strength:Int
+    private var _health:Int
+    private var weapon:Weapon = Weapon(name: "Batte de baseball")
+    
+    var health:Int {
+        get { _health }
+        set {
+            _health = max(0, newValue)
+        }
+    }
+    
+    var strength:Int {
+        get { _strength }
+        set {
+            _strength = max(0, newValue)
+        }
+    }
     
     init(pseudo:String) {
-        if (pseudo.count == 0) {
+        if pseudo.count == 0 {
             self.pseudo = "Anonymous"
         } else {
           self.pseudo = pseudo
         }
-        self.strength = 1
-        self.health = 100
+        
+        self._strength = 1
+        self._health = 100
+        self.weapon = Weapon(name:"baton")
     }
     
-    var isAlive: Bool { self.health > 0}
+    var isAlive: Bool { self._health > 0}
+    
+    func get_pseudo() -> String {
+        return self.pseudo
+    }
     
     func display() {
-        print("\(self.pseudo) : Force = \(self.strength), Santé = \(self.health)%")
+        print("\(self.pseudo) : Force = \(self._strength), Santé = \(self._health)%")
     }
     
     func attack(bot:Bot) {
         print("Tour de \(self.pseudo) :")
-        let deJoueur = lancerDes() * self.strength
-        print("Dé de \(self.pseudo) : \(deJoueur)")
+        let deJoueur = lancerDes() * (strength + weapon.power)
         bot.health -= deJoueur
+        if Double.random(in: 0.0...1.0) <= weapon.accuracy {
+          print("Dé de \(self.pseudo) : \(deJoueur) avec une puissance de \(self.weapon.power) et une précision de \(Int(self.weapon.accuracy * 100))%")
+          
+        } else {
+          print("Dé de \(self.pseudo) : \(deJoueur) Vous avez raté la cible ...")
+        }
     }
     
     func victory(bot:Bot, coups i:Int) {
-        print("Bravo \(self.pseudo), vous avez gagné en \(i) coups. J'augmente votre force !")
-        self.strength += 1
-        self.health = 100
+        weapon = Weapon(name:"Fusil à pompe", power: 2, accuracy: 1.0)
+        print("Bravo \(self.pseudo), vous avez gagné en \(i) coups. J'augmente votre force et vous donne une nouvelle arme \(weapon.get_name()) !")
+        strength += 1
+        health = 100
         bot.health = 100
         self.display()
     }

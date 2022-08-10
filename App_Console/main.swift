@@ -14,10 +14,10 @@ let bot = Bot()
 
 var i:Int
 var isMyTour:Bool = Bool.random()
-repeat {
+while player.isAlive {
     i = 1
-    repeat {
-        print("\n\(player.pseudo) : Appuyer sur entrée pour le tour n°\(i)")
+    while bot.isAlive && player.isAlive {
+        print("\n\(player.get_pseudo()) : Appuyer sur entrée pour le tour n°\(i)")
         _ = Utilisateur.saisirTexte()
         
         if isMyTour {
@@ -30,7 +30,7 @@ repeat {
         
         isMyTour.toggle()
         i += 1
-    } while bot.health >= 0 && player.health >= 0
+    }
     
     if bot.health < 0 {
         player.victory(bot: bot, coups:i)
@@ -40,7 +40,7 @@ repeat {
         player.health = 100
         player.strength -= 1
     }
-} while player.isAlive
+}
 print("Game over....")
 
 func lancerDes() -> Int {

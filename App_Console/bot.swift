@@ -9,16 +9,31 @@
 import Foundation
 
 class Bot {
-    var strength:Int
-    var health:Int
+    private var _strength:Int
+    private var _health:Int
+    
+    var  health:Int {
+        get { _health }
+        set {
+            _health = max(0, newValue)
+        }
+    }
+    
+    var strength:Int {
+        get { _strength }
+        set {
+            _strength = max(0, newValue)
+        }
+    }
+    var isAlive: Bool { self._health > 0}
     
     init() {
-        self.health = 100
-        self.strength = 1
+        self._health = 100
+        self._strength = 1
     }
     
     func display() {
-        print("Bot : Force = \(self.strength), Santé \(self.health)%")
+        print("Bot : Force = \(self._strength), Santé \(self._health)%")
     }
     
     func attack(player:Player) {
