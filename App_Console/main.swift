@@ -30,18 +30,12 @@ repeat {
         
         isMyTour.toggle()
         
-        print("===> Player \(player.health)%  : \(player.isAlive) - Bot \(bot.health)%  : \(bot.isAlive)  <===")
     } while player.isAlive && bot.isAlive
-    //} while player.health > 0 && bot.health > 0
     
-    if bot.health < 0 {
+    if player.isAlive {
         player.victory(bot: bot, coups:i)
     }
-    if player.health < 0 {
-        print("Perdu en \(i) coups. Une vie en moins")
-        player.health = 100
-        player.strength -= 1
-    }
+
 } while player.isAlive
 print("Game over....")
 
