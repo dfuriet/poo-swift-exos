@@ -8,32 +8,14 @@
 
 import Foundation
 
-class Bot {
-    private var _strength:Int
-    private var _health:Int
-    
-    var  health:Int {
-        get { _health }
-        set {
-            _health = max(0, newValue)
-        }
-    }
-    
-    var strength:Int {
-        get { _strength }
-        set {
-            _strength = max(0, newValue)
-        }
-    }
-    var isAlive: Bool { self._health > 0}
-    
+class Bot : Fighter {
     init() {
-        self._health = 100
-        self._strength = 1
+        super.init(health: 100, strength: 1)
     }
     
-    func display() {
-        print("Bot : Force = \(self._strength), Santé \(self._health)%")
+    override func display() {
+        print("Bot : ", terminator: "")
+        super.display()
     }
     
     func attack(player:Player) {

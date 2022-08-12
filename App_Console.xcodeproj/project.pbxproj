@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6D68B81D28A3989A00FD4AD9 /* weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D68B81C28A3989A00FD4AD9 /* weapon.swift */; };
 		6D68B82128A3C48B00FD4AD9 /* weaponListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D68B82028A3C48B00FD4AD9 /* weaponListManager.swift */; };
+		6D68B82328A6670300FD4AD9 /* fighter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D68B82228A6670300FD4AD9 /* fighter.swift */; };
 		6D69A04E2895065D00BD2254 /* bot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D69A04D2895065D00BD2254 /* bot.swift */; };
 		6D99D2B02898521500357ADF /* player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D99D2AF2898521500357ADF /* player.swift */; };
 		F860308C1EB8C99F002BD3BF /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = F860308B1EB8C99F002BD3BF /* Math.swift */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		6D68B81C28A3989A00FD4AD9 /* weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weapon.swift; sourceTree = "<group>"; };
 		6D68B82028A3C48B00FD4AD9 /* weaponListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weaponListManager.swift; sourceTree = "<group>"; };
+		6D68B82228A6670300FD4AD9 /* fighter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fighter.swift; sourceTree = "<group>"; };
 		6D69A04D2895065D00BD2254 /* bot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bot.swift; sourceTree = "<group>"; };
 		6D99D2AF2898521500357ADF /* player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = player.swift; sourceTree = "<group>"; };
 		F860308B1EB8C99F002BD3BF /* Math.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				6D99D2AF2898521500357ADF /* player.swift */,
 				6D68B81C28A3989A00FD4AD9 /* weapon.swift */,
 				6D68B82028A3C48B00FD4AD9 /* weaponListManager.swift */,
+				6D68B82228A6670300FD4AD9 /* fighter.swift */,
 			);
 			path = App_Console;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8A5D25B1EB8B64000A56D56 /* main.swift in Sources */,
+				6D68B82328A6670300FD4AD9 /* fighter.swift in Sources */,
 				6D69A04E2895065D00BD2254 /* bot.swift in Sources */,
 				F860308C1EB8C99F002BD3BF /* Math.swift in Sources */,
 				6D68B82128A3C48B00FD4AD9 /* weaponListManager.swift in Sources */,

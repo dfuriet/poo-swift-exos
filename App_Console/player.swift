@@ -8,26 +8,10 @@
 
 import Foundation
 
-class Player {
+class Player : Fighter {
     private let pseudo:String
-    private var _strength:Int
-    private var _health:Int
     private var weapon:Weapon
     private let weaponListManager = WeaponListManager()
-    
-    var health:Int {
-        get { _health }
-        set {
-            _health = max(0, newValue)
-        }
-    }
-    
-    var strength:Int {
-        get { _strength }
-        set {
-            _strength = max(0, newValue)
-        }
-    }
     
     init(pseudo:String) {
         if pseudo.count == 0 {
@@ -35,20 +19,17 @@ class Player {
         } else {
           self.pseudo = pseudo
         }
-        
-        self._strength = 1
-        self._health = 100
         self.weapon = weaponListManager.getNextWeaponToLoot()!
+        super.init(health: 100, strength: 1)
     }
-    
-    var isAlive: Bool { self._health > 0}
     
     func get_pseudo() -> String {
         return self.pseudo
     }
     
-    func display() {
-        print("\(self.pseudo) : Force = \(self._strength), Santé = \(self._health)%")
+    override func display() {
+        print("\(self.pseudo) : ", terminator: "")
+        super.display()
     }
     
     func attack(bot:Bot) {
