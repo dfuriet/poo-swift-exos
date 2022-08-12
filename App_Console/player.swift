@@ -13,6 +13,8 @@ class Player : Fighter {
     private var weapon:Weapon
     private let weaponListManager = WeaponListManager()
     
+    override var description: String { return "\(self.pseudo) : " + super.description }
+    
     init(pseudo:String) {
         if pseudo.count == 0 {
             self.pseudo = "Anonymous"
@@ -27,10 +29,10 @@ class Player : Fighter {
         return self.pseudo
     }
     
-    override func display() {
+    /* override func display() {
         print("\(self.pseudo) : ", terminator: "")
         super.display()
-    }
+    } */
     
     func attack(bot:Bot) {
         print("Tour de \(self.pseudo) :")
@@ -50,7 +52,8 @@ class Player : Fighter {
             strength += 1
             health = 100
             bot.health = 100
-            self.display()
+            //self.display()
+            print(self)
         } else {
             print("Bravo \(self.pseudo), vous avez gagné en \(i) coups. J'ai plus d'arme.")
         }

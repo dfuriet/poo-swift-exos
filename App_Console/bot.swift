@@ -9,14 +9,17 @@
 import Foundation
 
 class Bot : Fighter {
+    
+    override var description: String { return "Bot : " + super.description }
+    
     init() {
         super.init(health: 100, strength: 1)
     }
     
-    override func display() {
+    /* override func display() {
         print("Bot : ", terminator: "")
         super.display()
-    }
+    } */
     
     func attack(player:Player) {
         print("Tour de Bot :")

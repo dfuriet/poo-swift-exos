@@ -21,11 +21,13 @@ repeat {
             print("\n\(player.get_pseudo()) : Appuyer sur entrée pour le tour n°\(i)")
             _ = Utilisateur.saisirTexte()
             player.attack(bot:bot)
-            bot.display()
+            //bot.display()
+            print(bot)
             i += 1
         } else {
             bot.attack(player:player)
-            player.display()
+            //player.display()
+            print(player)
         }
         
         isMyTour.toggle()
